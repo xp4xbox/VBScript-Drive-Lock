@@ -15,6 +15,7 @@ Function DisplayPrompt()
 	ElseIf intSplash = 7 Then
 		On Error Resume Next
 		objWshShl.RegDelete "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoViewOnDrive"
+		objWshShl.RegDelete "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoDrives"
 		If Err.Number <> 0 Then
 			MsgBox "Drives are already unlocked.",16,cTitleBarMsg
 			DisplayPrompt()
@@ -127,6 +128,8 @@ Sub Sets
 End Sub
 Function WriteToRegistry()
 	objWshShl.RegWrite "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoViewOnDrive", _
+	 intDriveNumber, "REG_DWORD"
+	objWshShl.RegWrite "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoDrives", _
 	 intDriveNumber, "REG_DWORD"
 End Function
 Function RunAsAdmin()
