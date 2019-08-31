@@ -22,7 +22,7 @@ Function DisplayPrompt()
 		End If
 		On Error Goto 0
 		objWshShl.Run "Taskkill /f /im explorer.exe",0
-		WScript.Sleep 300
+		WScript.Sleep 900
 		objWshShl.Run "cmd /c explorer.exe",0
 		MsgBox "Drive unlocked was succesfull!",64,cTitleBarMsg
 		DisplayPrompt()
@@ -63,7 +63,7 @@ End Sub
 Sets()
 WriteToRegistry()
 objWshShl.Run "Taskkill /f /im explorer.exe",0
-WScript.Sleep 300
+WScript.Sleep 900
 objWshShl.Run "cmd /c explorer.exe",0
 MsgBox "Drive locked was succesfull!",64,cTitleBarMsg
 objWshShl.Run """"&WScript.ScriptFullName&""""
@@ -140,7 +140,7 @@ Function RunAsAdmin()
 	End If
 End Function
 Function DisplaySplashScreen()
-	MsgBox "Thank you for using " & cTitleBarMsg & " © 2016 xp4xbox.", _
+	MsgBox "Thank you for using " & cTitleBarMsg & " Â© 2016 xp4xbox.", _
 	 4144, cTitleBarMsg
 	WScript.Sleep 2000 : objWshShl.Run "taskkill /f /im cmd.exe",0
   	WScript.Quit()
